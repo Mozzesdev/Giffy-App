@@ -15,7 +15,6 @@ const App = () => {
         <h1>
           <Link to="/">Giffy</Link>
         </h1>
-
         <SearchForm />
         <Route path="/gif/:id" component={Details} />
         <Route path="/" component={Home} />
