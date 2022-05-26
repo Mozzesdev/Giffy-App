@@ -1,0 +1,40 @@
+:root{
+  --brand-color_1: #00ff99;
+  --brand-color_2: #00ccff;
+  --brand-color_3: #9933ff;
+  --brand-color_4: tomato;
+  --brand-color_5: #fff35c;
+  --brand-color_6: #8429de;
+  --hover-color_1: #00d47f;
+  --hover-color_2: #00b4e0;
+  --hover-color_3: #7d25d4;
+  --hover-color_4: #db553d;
+  --hover-color_5: #faed3b;
+  --hover-color_6: #7812df;
+}
+
+body {
+  margin: 0;
+  font-family: Cascadia Code, sans-serif;
+}
+
+code {
+  font-family: Cascadia Code, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+h1{
+  font-size: 49px;
+  margin: 0 0 40px 0;
+}
