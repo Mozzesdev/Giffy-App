@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { Helmet } from "react-helmet";
 
 const Home = () => {
-  const { loading, gifs } = useGifs({limit: 5});
+  const { loading, gifs } = useGifs({limit: 10});
 
   return (
     <>
@@ -16,7 +16,7 @@ const Home = () => {
       <LastSearchHomePage>
         <div>
           <h3>Ultima busqueda</h3>
-          {loading ? <Spinner /> : <GifsList gifs={gifs} width='100%' />}
+          {loading ? <Spinner /> : <GifsList gifs={gifs.data} width='100%' />}
         </div>
         <LazyTrending />
       </LastSearchHomePage>
@@ -28,20 +28,16 @@ export default Home;
 
 const LastSearchHomePage = styled.div`
   text-align: left;
-  max-width: 85%;
+  max-width: 90%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 3.5fr 0.9fr;
-  gap: 40px;
+  grid-template-columns: 3.5fr 1fr;
+  gap: 30px;
   h3 {
-    font-size: 21px;
+    font-size: 27px;
     margin-bottom: 20px;
   }
-  @media (max-width: 800px) {
-    max-width: 87%;
-  }
-  @media (max-width: 700px) {
-    max-width: 90%;
+  @media (max-width: 880px) {
     grid-template-columns: 1fr;
   }
 `;

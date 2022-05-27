@@ -29,7 +29,7 @@ const App = () => {
 export default App;
 
 const GlobalContainer = styled.div`
-  background-color: #15091b;
+  background-color: #120918;
   width: 100%;
   min-height: 100vh;
   color: #fff;
@@ -37,5 +37,10 @@ const GlobalContainer = styled.div`
   padding: 70px 0;
   @media (max-width: 350px) {
     padding: 50px 0;
+  }
+  h1 {
+    font-size: 60px;
+    margin: 0 0 40px 0;
+    font-family: 'Roboto Mono', monospace;
   }
 `;

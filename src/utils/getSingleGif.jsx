@@ -6,7 +6,7 @@ const fromApiResponse = (apiResponse) => {
     id,
     title,
     images: {
-      downsized_still: { url },
+      downsized_medium: { url },
     },
   } = data;
 

@@ -26,7 +26,10 @@ export const useGifs = ({ keyword, limit } = { keyword: null }) => {
     setLoadingPage(true);
     getAllGIfs({ keyword: keywordToUse, page }).then((nextGifs) => {
       setLoadingPage(false);
-      setGifs((prevGifs) => [...prevGifs, ...nextGifs]);
+      setGifs((prevGifs) => {
+        const { data, pagination } = prevGifs
+        return {data: [...data, ...nextGifs.data], pagination: pagination}
+      });
     });
   }, [page, keywordToUse]);
 

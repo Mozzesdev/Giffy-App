@@ -27,7 +27,7 @@ const Container = styled.div`
     margin: 0;
     justify-content: flex-end;
   }
-  @media (max-width: 700px) {
+  @media (max-width: 880px) {
     text-align: center;
     ul {
       justify-content: center;
@@ -57,7 +57,10 @@ const CategoryListItem = styled.li`
 
 const CategoryLink = styled(Link)`
   color: inherit;
-  font-size: 14px;
+  font-size: 17px;
   font-weight: bold;
   transition: color ease-in 0.1s;
+  @media (max-width: 400px) {
+    font-size: 15px;
+  }
 `;

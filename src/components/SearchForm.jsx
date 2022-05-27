@@ -9,6 +9,7 @@ const SearchForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     pushLocation(`/search/${keyword}`);
+    setKeyword('')
   };
 
   const handleChange = (e) => {

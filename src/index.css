@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&display=swap');
+
 :root{
   --brand-color_1: #00ff99;
   --brand-color_2: #00ccff;
   --brand-color_3: #9933ff;
-  --brand-color_4: tomato;
+  --brand-color_4: #ff6347;
   --brand-color_5: #fff35c;
   --brand-color_6: #8429de;
   --hover-color_1: #00d47f;
@@ -32,9 +34,4 @@ code {
 a {
   text-decoration: none;
   color: white;
-}
-
-h1{
-  font-size: 49px;
-  margin: 0 0 40px 0;
 }

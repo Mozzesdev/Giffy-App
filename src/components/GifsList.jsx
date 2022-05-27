@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import Gif from "./Gif";
 
-const GifsList = ({ gifs = [], width = '90%' }) => {
+const GifsList = ({ gifs = [], width = '100%' }) => {
   return (
     <>
       <GifsContainer width={width}>
-        {gifs.map(({ id, url, title }) => (
-          <Gif id={id} key={id} url={url} title={title} />
+        {gifs.map(({ id, url, title }, index) => (
+          <Gif id={id} key={id} url={url} title={title} index={index} />
         ))}
       </GifsContainer>
     </>
@@ -17,13 +17,9 @@ export default GifsList;
 
 const GifsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-auto-flow: row dense;
+  grid-auto-rows: 200px;
   gap: 10px;
-  margin: 10px auto;
-  width: ${(props) => props.width};
   min-height: 100vh;
-  img {
-    object-fit: cover;
-    width: 100%;
-  }
 `;
