@@ -57,8 +57,8 @@ const CategoryListItem = styled.li`
 
 const CategoryLink = styled(Link)`
   color: inherit;
-  font-size: 17px;
-  font-weight: bold;
+  font-size: 16px;
+  font-weight: 600;
   transition: color ease-in 0.1s;
   @media (max-width: 400px) {
     font-size: 15px;

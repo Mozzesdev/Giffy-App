@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
-const Spinner = ({minHeight}) => {
+const Spinner = ({minHeight, d = "15px"}) => {
   return (
     <SpinnerContainer minHeight={minHeight}>
-      <SpinnerDiv index={2} />
-      <SpinnerDiv index={3} />
-      <SpinnerDiv index={4} />
-      <SpinnerDiv index={1} />
+      <SpinnerDiv index={2} d={d} />
+      <SpinnerDiv index={3} d={d} />
+      <SpinnerDiv index={4} d={d} />
+      <SpinnerDiv index={1} d={d} />
     </SpinnerContainer>
   );
 };
@@ -18,15 +18,14 @@ const SpinnerContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px 0 0 0;
 `;
 
 const SpinnerDiv = styled.div`
-  width: 15px;
+  width: ${props => props.d};
   border-radius: 2px;
-  height: 15px;
+  height: ${props => props.d};
   background-color: ${(props) => `var(--brand-color_${props.index})`};
-  margin: 0 7px ${props => props.minHeight ? '300px' : '0'} 7px;
+  margin: 0 6px;
   animation: ${(props) => {
     const index = props.index;
     if (index === 2) {
