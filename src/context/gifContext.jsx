@@ -10,10 +10,11 @@ export const useGif = () => {
 
 export const GifProvider = ({ children }) => {
  const [gifs, setGifs] = useState([])
+ const [autoComplete, setAutoComplete] = useState([]);
 
   return (
     <gifContext.Provider
-    value={{gifs, setGifs}}
+    value={{gifs, setGifs, autoComplete, setAutoComplete}}
     >
       {children}
     </gifContext.Provider>

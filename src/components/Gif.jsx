@@ -64,15 +64,11 @@ const ContainerGif = styled.div`
 
 const GifLink = styled(Link)`
   height: 100%;
-  color: #000;
   display: block;
   text-decoration: none;
   position: relative;
   width: 100%;
-  font-size: 17px;
   cursor: pointer;
-
-  
 `;
 
 const Img = styled.img`
