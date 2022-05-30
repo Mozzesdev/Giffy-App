@@ -1,15 +1,18 @@
 import styled from "styled-components";
 
-const AutoComplete = ({ item, to, setAutoComplete, setKeyword }) => {
- 
+const AutoComplete = ({ item, to, setAutoComplete, changeKeyword, rating }) => {
+
   return (
     <Container>
       {item.map((item) => (
-        <Item key={item.id} onClick={() => {
-         to(`/search/${item.name}`)
-         setAutoComplete([])
-         setKeyword("")
-        }}>
+        <Item
+          key={item.id}
+          onClick={() => {
+            to(`/search/${item.name}/${rating}`);
+            setAutoComplete([]);
+            changeKeyword({ keyword: "" });
+          }}
+        >
           <p>{item.name}</p>
         </Item>
       ))}

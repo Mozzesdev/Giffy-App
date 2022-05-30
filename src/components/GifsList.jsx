@@ -6,7 +6,7 @@ const GifsList = ({ gifs = [], width = '100%' }) => {
     <>
       <GifsContainer width={width}>
         {gifs.map(({ id, url, title }, index) => (
-          <Gif id={id} key={id} url={url} title={title} index={index} />
+          <Gif id={id} key={`${Math.random()}${id}`} url={url} title={title} index={index} />
         ))}
       </GifsContainer>
     </>
