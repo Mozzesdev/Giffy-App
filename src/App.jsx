@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Switch, Route } from "wouter";ç
+import { Switch, Route } from "wouter";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import SearchFormRes from "./components/SearchFormRes";
