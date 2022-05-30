@@ -8,7 +8,7 @@ import AutoComplete from "./AutoComplete";
 
 const RATINGS = ["g", "pg", "pg-13", "r"];
 
-const SearchForm = ({ initialKeyword = "", initialRating = RATINGS[0] }) => {
+const SearchFormRes = ({ initialKeyword = "", initialRating = RATINGS[3] }) => {
   const { changeKeyword, changeRating, keyword, rating } = useForm({
     initialKeyword,
     initialRating,
@@ -28,7 +28,7 @@ const SearchForm = ({ initialKeyword = "", initialRating = RATINGS[0] }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({ keyword });
+    onSubmit({keyword})
   };
 
   const handleChange = (e) => {
@@ -59,8 +59,8 @@ const SearchForm = ({ initialKeyword = "", initialRating = RATINGS[0] }) => {
         {autoComplete && (
           <AutoComplete
             item={autoComplete}
-            to={pushLocation}
             rating={rating}
+            to={pushLocation}
             setAutoComplete={setAutoComplete}
             changeKeyword={changeKeyword}
           />
@@ -70,7 +70,7 @@ const SearchForm = ({ initialKeyword = "", initialRating = RATINGS[0] }) => {
   );
 };
 
-export default memo(SearchForm);
+export default memo(SearchFormRes);
 
 const FormularioDeBusqueda = styled.form`
   height: 34px;
@@ -140,18 +140,16 @@ const InputForm = styled.input`
   }
 `;
 
-
-
 const Container = styled.div`
   max-width: 300px;
-  margin: 40px 26px;
+  margin: 0 auto 40px auto;
   height: auto;
-  display: flex;
+  display: none;
   flex-direction: column;
   position: relative;
   align-items: center;
   justify-content: center;
   @media (max-width: 1205px) {
-    display: none;
+    display: block;
   }
 `;

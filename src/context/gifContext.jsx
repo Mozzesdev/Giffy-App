@@ -9,7 +9,7 @@ export const useGif = () => {
 
 
 export const GifProvider = ({ children }) => {
- const [gifs, setGifs] = useState([])
+ const [gifs, setGifs] = useState({data: [], pagination: {}});
  const [autoComplete, setAutoComplete] = useState([]);
 
   return (

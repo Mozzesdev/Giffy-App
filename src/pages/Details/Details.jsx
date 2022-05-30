@@ -1,7 +1,7 @@
 import { Redirect } from "wouter";
 import Gif from "../../components/Gif";
 import Spinner from "../../components/Spinner";
-import useSingleGif from "../../hooks/useSingelGif";
+import useSingleGif from "../../hooks/useSingleGif";
 import { Helmet } from "react-helmet";
 
 const Details = ({ params }) => {

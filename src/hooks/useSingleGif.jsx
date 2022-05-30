@@ -6,7 +6,9 @@ export default function useSingleGif(id) {
   const { gifs } = useGifs();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const gifFromCache = gifs.find((gif) => gif.id === id);
+
+  const { data } = gifs
+  const gifFromCache = data.find((gif) => gif.id === id)
 
   const [gif, setGif] = useState(gifFromCache);
 
