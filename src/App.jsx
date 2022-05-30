@@ -27,7 +27,6 @@ const App = () => {
           <Route path="/search/:keyword/:rating?" component={Result} />
           <Route path="/:rest" component={NotFound} />
         </Switch>
-        
       </GlobalContainer>
       <Footer />
     </>

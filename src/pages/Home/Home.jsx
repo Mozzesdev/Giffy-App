@@ -15,7 +15,7 @@ const Home = () => {
     </Helmet>
       <LastSearchHomePage>
         <div>
-          <h3>Ultima busqueda</h3>
+          <h3>Last Search</h3>
           {loading ? <Spinner /> : <GifsList gifs={gifs.data} width='100%' />}
         </div>
         <LazyTrending />
@@ -30,6 +30,7 @@ const LastSearchHomePage = styled.div`
   text-align: left;
   max-width: 90%;
   margin: 0 auto;
+  padding-bottom: 30px;
   display: grid;
   grid-template-columns: 3.5fr 1fr;
   gap: 30px;
