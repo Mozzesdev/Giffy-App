@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&display=swap');
-@import url('http://fonts.cdnfonts.com/css/cascadia-code?styles=49022');
 
 :root{
   --brand-color_1: #00ff99;
@@ -18,7 +17,7 @@
 
 body {
   margin: 0;
-  font-family: 'Cascadia Code', sans-serif;
+  font-family: 'Roboto Mono', sans-serif;
 }
 
 code {
