@@ -23,13 +23,13 @@ const AutoComplete = ({ item, to, setAutoComplete, changeKeyword, rating }) => {
 export default AutoComplete;
 
 const Container = styled.div`
-  width: 258px;
+  width: 100%;
   height: auto;
   margin-top: 3px;
   background-color: #fff;
   overflow: hidden;
   position: absolute;
-  top: 35px;
+  top: 30px;
   z-index: 1;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
@@ -49,5 +49,9 @@ const Item = styled.div`
   transition: ease all 0.3s;
   :hover {
     background-color: #e7e7e7;
+  }
+  @media (max-width: 233px) {
+    font-size: 12px;
+  padding: 7px;
   }
 `;

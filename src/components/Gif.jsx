@@ -2,12 +2,12 @@ import { memo } from "react";
 import { Link } from "wouter";
 import styled from "styled-components";
 
-const Gif = ({ title, id, url, index }) => {
+const Gif = ({ title, id, url, index, width }) => {
   return (
-    <ContainerGif index={index}>
-      <GifLink to={`/gif/${id}`}>
-        <h4>{title} {index + 1}</h4>
-        <Img src={url} alt={title} index={index} />
+    <ContainerGif index={index} large={width}>
+      <GifLink to={`/gif/${id}`} >
+        <h4>{title}</h4>
+        <Img src={url} alt={title} index={index} large={width}  />
       </GifLink>
     </ContainerGif>
   );
@@ -18,7 +18,9 @@ export default memo(Gif, (prev, next) => {
 });
 
 const ContainerGif = styled.div`
+  width: ${props => props.large ? `${props.large}px` : "100%"};
   height: 100%;
+  margin: 0 auto;
   margin-bottom: 0px;
   position: relative;
 
@@ -64,10 +66,10 @@ const ContainerGif = styled.div`
 
 const GifLink = styled(Link)`
   height: 100%;
+  width: 100%;
   display: block;
   text-decoration: none;
   position: relative;
-  width: 100%;
   cursor: pointer;
 `;
 
@@ -75,13 +77,14 @@ const Img = styled.img`
   height: inherit;
   object-fit: cover;
   width: 100%;
+  min-height: 200px;
+  height: 100%;
   transition: all ease 0.2s;
 
   :nth-child(5n + 2) {
-    background-color: ${(props) =>
-      `var(--brand-color_${(props.index % 5) + 1})`};
+    background-color: ${(props) => props.index ? `var(--brand-color_${(props.index % 5) + 1})` : "var(--brand-color_2)" };
   }
   :hover {
-    padding: 6px;
+    padding: ${props => props.large ? "0" : "6px"};
   }
 `;

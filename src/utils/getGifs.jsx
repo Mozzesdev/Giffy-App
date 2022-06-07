@@ -5,13 +5,9 @@ const fetchGifs = async ({ keyword, limit, page, rating }) => {
     page * limit
   }&rating=${rating}&lang=es`;
 
-  try {
     const response = await fetch(apiUrl);
     const data = await response.json();
     return data;
-  } catch (error) {
-    console.log(error.message);
-  }
 };
 
 const mapFromApiToGif = (apiResponse = { data: [], pagination: {} }) => {

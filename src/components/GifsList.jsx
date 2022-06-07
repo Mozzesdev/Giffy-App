@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Gif from "./Gif";
 
-const GifsList = ({ gifs = [], width = '100%' }) => {
+const GifsList = ({ gifs = [], width }) => {
   return (
     <>
       <GifsContainer width={width}>
@@ -16,6 +16,7 @@ const GifsList = ({ gifs = [], width = '100%' }) => {
 export default GifsList;
 
 const GifsContainer = styled.div`
+  width: ${props => props.width ? `${props.width}%` : '100%'};
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   grid-auto-flow: row dense;

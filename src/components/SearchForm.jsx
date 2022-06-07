@@ -16,7 +16,7 @@ const SearchForm = ({ initialKeyword = "", initialRating = RATINGS[0] }) => {
 
   const [path, pushLocation] = useLocation();
 
-  const { autoComplete, setAutoComplete } = useGif();
+  const { autoComplete, setAutoComplete, signal, controller } = useGif();
 
   const onSubmit = ({ keyword }) => {
     if (keyword !== "") {
@@ -35,11 +35,12 @@ const SearchForm = ({ initialKeyword = "", initialRating = RATINGS[0] }) => {
     changeKeyword({ keyword: e.target.value });
     if (keyword.length > 0) {
       setAutoComplete([{ name: e.target.value }]);
-      getAutoComplete(e.target.value).then((data) => {
+      getAutoComplete(e.target.value, signal).then((data) => {
         setAutoComplete([...data.data]);
       });
     } else {
       setAutoComplete([]);
+      controller.abort();
     }
   };
 
@@ -73,7 +74,7 @@ const SearchForm = ({ initialKeyword = "", initialRating = RATINGS[0] }) => {
 export default memo(SearchForm);
 
 const FormularioDeBusqueda = styled.form`
-  height: 34px;
+  height: 30.5px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -143,7 +144,7 @@ const InputForm = styled.input`
 
 
 const Container = styled.div`
-  max-width: 300px;
+  max-width: 260px;
   margin: 40px 26px;
   height: auto;
   display: flex;

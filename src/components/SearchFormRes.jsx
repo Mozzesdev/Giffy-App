@@ -16,7 +16,7 @@ const SearchFormRes = ({ initialKeyword = "", initialRating = RATINGS[3] }) => {
 
   const [path, pushLocation] = useLocation();
 
-  const { autoComplete, setAutoComplete } = useGif();
+  const { autoComplete, setAutoComplete, signal, controller } = useGif();
 
   const onSubmit = ({ keyword }) => {
     if (keyword !== "") {
@@ -28,34 +28,37 @@ const SearchFormRes = ({ initialKeyword = "", initialRating = RATINGS[3] }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit({keyword})
+    onSubmit({ keyword });
   };
+
 
   const handleChange = (e) => {
     changeKeyword({ keyword: e.target.value });
     if (keyword.length > 0) {
       setAutoComplete([{ name: e.target.value }]);
-      getAutoComplete(e.target.value).then((data) => {
+      getAutoComplete(e.target.value, signal).then((data) => {
         setAutoComplete([...data.data]);
       });
     } else {
       setAutoComplete([]);
+      controller.abort();
     }
   };
 
   return (
     <>
-      <Container onClick={(e) => e.stopPropagation()}>
-        <FormularioDeBusqueda onSubmit={handleSubmit}>
-          <InputForm
-            onFocus={handleChange}
-            type="text"
-            placeholder="Search a gif here..."
-            value={keyword}
-            onChange={handleChange}
-          />
-          <SearchButton type="submit">Search</SearchButton>
-        </FormularioDeBusqueda>
+      <FormularioDeBusqueda
+        onSubmit={handleSubmit}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <InputForm
+          onFocus={handleChange}
+          type="text"
+          placeholder="Search a gif here..."
+          value={keyword}
+          onChange={handleChange}
+        />
+        <SearchButton type="submit">Search</SearchButton>
         {autoComplete && (
           <AutoComplete
             item={autoComplete}
@@ -65,7 +68,7 @@ const SearchFormRes = ({ initialKeyword = "", initialRating = RATINGS[3] }) => {
             changeKeyword={changeKeyword}
           />
         )}
-      </Container>
+      </FormularioDeBusqueda>
     </>
   );
 };
@@ -73,17 +76,22 @@ const SearchFormRes = ({ initialKeyword = "", initialRating = RATINGS[3] }) => {
 export default memo(SearchFormRes);
 
 const FormularioDeBusqueda = styled.form`
-  height: 34px;
-  display: flex;
+  max-width: 260px;
+  position: relative;
+  display: none;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
-  @media (max-width: 800px) {
-    height: 30px;
-  }
+  height: 28px;
+  margin: 0 auto 25px auto;
   @media (max-width: 350px) {
-    height: 28px;
-    font-size: 12px;
+    max-width: 200px;
+  }
+  @media (max-width: 230px) {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  @media (max-width: 1205px) {
+    display: flex;
   }
 `;
 const SearchButton = styled.button`
@@ -109,11 +117,17 @@ const SearchButton = styled.button`
   @media (max-width: 350px) {
     width: 70px;
     font-size: 12px;
+    padding: 0 4px;
+  }
+  @media (max-width: 230px) {
+    width: 60px;
+    font-size: 10px;
     padding: 0 2px;
   }
 `;
 
 const InputForm = styled.input`
+  width: 100%;
   height: 100%;
   padding: 0 0 0 10px;
   background-color: #fcfcfc;
@@ -130,26 +144,7 @@ const InputForm = styled.input`
     font-size: 13px;
     color: #3d3d3d;
     @media (max-width: 350px) {
-      font-size: 13px;
+      font-size: 11px;
     }
-  }
-  @media (max-width: 350px) {
-    width: 130px;
-    font-size: 12px;
-    padding-left: 7px;
-  }
-`;
-
-const Container = styled.div`
-  max-width: 300px;
-  margin: 0 auto 40px auto;
-  height: auto;
-  display: none;
-  flex-direction: column;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  @media (max-width: 1205px) {
-    display: block;
   }
 `;

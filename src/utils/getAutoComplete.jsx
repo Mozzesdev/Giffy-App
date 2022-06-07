@@ -10,10 +10,10 @@ const generateUUID = () => {
   return uuid;
 };
 
-const fetchGifs = async ({ keyword, limit }) => {
+const fetchGifs = async ({ keyword, limit, signal }) => {
   const apiUrl = `${API_URL}/gifs/search/tags?api_key=${API_KEY}&q=${keyword}&limit=${limit}`;
   try {
-    const response = await fetch(apiUrl);
+    const response = await fetch(apiUrl, {signal});
     const data = await response.json();
     return data;
   } catch (error) {
@@ -32,7 +32,7 @@ const mapFromApiGifs = (apiResponse) => {
   return gifsInfo;
 };
 
-export default async function getAutoComplete(keyword) {
-  const gifs = await fetchGifs({ keyword, limit: 3 });
+export default async function getAutoComplete(keyword, signal) {
+  const gifs = await fetchGifs({ keyword, limit: 3, signal });
   return mapFromApiGifs(gifs);
 }

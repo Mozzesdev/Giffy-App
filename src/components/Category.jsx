@@ -58,6 +58,16 @@ const Container = styled.div`
       transform: scale(1.6);
       margin-right: 15px;
     }
+    @media (max-width: 880px) {
+    justify-content: center;
+    }
+    @media (max-width: 350px) {
+    font-size: 23px;
+    svg {
+      transform: scale(1.4);
+      margin-right: 10px;
+    }
+    }
   }
   ul {
     display: flex;
@@ -99,6 +109,6 @@ const CategoryLink = styled(Link)`
   font-weight: 600;
   transition: color ease-in 0.1s;
   @media (max-width: 400px) {
-    font-size: 15px;
+    font-size: 13px;
   }
 `;

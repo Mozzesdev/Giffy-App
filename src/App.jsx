@@ -43,7 +43,7 @@ const GlobalContainer = styled.div`
   color: #fff;
   text-align: center;
   @media (max-width: 350px) {
-    padding: 50px 0;
+    padding: 0 0 20px 0;
   }
   h1 {
     font-size: 40px;
